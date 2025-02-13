@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "pl.doleckijakub.busbuddy"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "pl.doleckijakub.busbuddy"

@@ -1,57 +1,32 @@
 package pl.doleckijakub.busbuddy.ui.theme
 
-import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
-
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
-
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-)
+import androidx.compose.ui.graphics.Color
 
 @Composable
-fun BusBuddyTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
-) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+fun BusBuddyTheme(content: @Composable () -> Unit) {
+    val darkColorScheme = lightColorScheme(
+        primary = Color(0xFF8B0000),
+        primaryContainer = Color(0xFF5A0000),
+        onPrimary = Color(0xFFFFFFFF),
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
+        secondary = Color(0xFF6A0DAD),
+        secondaryContainer = Color(0xFF450A74),
+        onSecondary = Color(0xFF000000),
+
+        background = Color(0xFF1A001A),
+        onBackground = Color(0xFF000000),
+
+        surface = Color(0xFF2E002E),
+        onSurface = Color(0xFF000000),
+
+        error = Color(0xFFD32F2F),
+        onError = Color(0xFFFFFFFF),
+    )
 
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = darkColorScheme,
         typography = Typography,
         content = content
     )
